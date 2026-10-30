@@ -16,6 +16,8 @@ It does not touch build timers, judgement timers, production rates, or anything 
 
 Modifies `GLOBALS/GCSETTLEMENTGLOBALS.GLOBAL.MBIN` only. It may conflict with any other mod editing that file, including full settlement overhauls such as Accelerated Settlements and timer mods. The generated patch is minimal: one value and nothing else, so load-order conflicts with unrelated globals mods should not happen, but two mods writing the same settlement globals will conflict outright and the pak the game loads last wins.
 
+Same-file mods do not merge: the game loads one `GCSETTLEMENTGLOBALS.EXML` and discards the other. The timer mod `gSettlement Timers Instant` sorts after this mod, so with both installed the timer file wins and the fanfare stays at 10 seconds. The fix is a one-line local merge: add `<Property name="BuildingRevealCutsceneLength" value="1.000000" />` to the timer mod's `GLOBALS/GCSETTLEMENTGLOBALS.EXML` and redeploy. Re-apply that line after every timer mod update, since updates overwrite it.
+
 ## Build (on Linux)
 
 Requires a full AMUMSS install at `~/AMUMSS` (override with `AMUMSS_HOME=...`) with `MBINCompiler-linux` fetched (`linux/scripts/fetch_mbincompiler.sh` in the AMUMSS repo).
