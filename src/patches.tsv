@@ -1,0 +1,13 @@
+# The values this mod patches, one per line:
+#
+#   FILE<TAB>PROPERTY<TAB>BASE<TAB>VALUE
+#
+# FILE is the MBIN path the game uses, relative to the data root.
+# PROPERTY is the field to rewrite.
+# BASE is the value the game ships today.
+# VALUE is the value the mod writes.
+#
+# The render step turns this table into the Lua patch list and into the
+# expected values that make verify checks the built EXML against.
+
+GCSETTLEMENTGLOBALS.MBIN	BuildingRevealCutsceneLength	10.000000	1.000000
